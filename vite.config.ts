@@ -48,8 +48,7 @@ function seo(siteUrl: string | undefined): Plugin {
       );
       if (base) {
         out = out
-          .replace('content="/og-image.jpg"', `content="${base}/og-image.jpg"`)
-          .replace('content="/og-image.jpg"', `content="${base}/og-image.jpg"`)
+          .replaceAll('content="/og-image.jpg', `content="${base}/og-image.jpg`)
           .replace("</title>", `</title>\n    <link rel="canonical" href="${base}/" />\n    <meta property="og:url" content="${base}/" />`);
       }
       return out;

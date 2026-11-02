@@ -45,7 +45,7 @@ export function usePageMeta({ title, description, exactTitle, noindex, image, ty
   useEffect(() => {
     const fullTitle = exactTitle ? title : `${title} | ${site.name}`;
     const url = `${siteOrigin()}${pathname === "/" ? "/" : pathname.replace(/\/$/, "")}`;
-    const imageUrl = new URL(image ?? "/og-image.jpg", siteOrigin()).href;
+    const imageUrl = new URL(image ?? "/og-image.jpg?v=2", siteOrigin()).href;
 
     document.title = fullTitle;
     setMeta("name", "description", description);
