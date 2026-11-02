@@ -1,0 +1,14 @@
+{
+  "name": "Herbolarium de la Fuente",
+  "short_name": "Herbolarium",
+  "description": "Herbolario y dietética en Oviedo",
+  "lang": "es",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#FCFBF7",
+  "theme_color": "#294D3B",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

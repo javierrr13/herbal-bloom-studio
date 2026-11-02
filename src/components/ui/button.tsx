@@ -5,23 +5,24 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-sm font-sans text-[0.78rem] font-semibold uppercase tracking-[0.12em] ring-offset-background transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90 shadow-sm",
+        default: "bg-forest text-warm hover:bg-pine",
         destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-        outline: "border-2 border-primary bg-transparent text-primary hover:bg-primary hover:text-primary-foreground",
-        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
-        link: "text-primary underline-offset-4 hover:underline",
-        hero: "bg-primary text-primary-foreground hover:bg-primary-dark shadow-md hover:shadow-lg transition-all duration-300",
+        outline: "border border-forest/40 bg-transparent text-forest hover:border-forest hover:bg-forest hover:text-warm",
+        secondary: "bg-beige text-pine hover:bg-sage-soft",
+        ghost: "hover:bg-beige hover:text-pine",
+        link: "h-auto whitespace-normal px-0 text-left text-forest underline decoration-sage underline-offset-4 hover:decoration-forest",
+        light: "bg-warm text-pine hover:bg-beige",
+        "outline-light": "border border-warm/60 bg-transparent text-warm hover:bg-warm hover:text-pine",
       },
       size: {
-        default: "h-10 px-4 py-2",
-        sm: "h-9 rounded-md px-3",
-        lg: "h-11 rounded-md px-8",
-        icon: "h-10 w-10",
+        default: "h-11 px-6",
+        sm: "h-9 px-4 text-[0.7rem]",
+        lg: "h-12 px-8",
+        icon: "h-11 w-11",
       },
     },
     defaultVariants: {

@@ -1,73 +1,42 @@
-# Welcome to your Lovable project
+# Herbolarium de la Fuente
 
-## Project info
+Web corporativa de Herbolarium de la Fuente, herbolario y dietética en Oviedo (Calle Caveda, Pasaje Núcleo, local 15).
 
-**URL**: https://lovable.dev/projects/c2c77264-b67b-43d0-b6ec-f2bb31201b03
+Tecnologías: Vite, React 18, TypeScript, Tailwind CSS y componentes shadcn/ui (Radix).
 
-## How can I edit this code?
+## Desarrollo
 
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/c2c77264-b67b-43d0-b6ec-f2bb31201b03) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+Requisitos: Node.js 18 o superior y npm.
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+npm install
+npm run dev        # servidor local en http://localhost:8080
+npm run build      # compilación de producción en dist/
+npm run preview    # sirve la compilación
+npm run lint
 ```
 
-**Edit a file directly in GitHub**
+## Publicación
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+1. Copia `.env.example` a `.env` e indica el dominio definitivo en `VITE_SITE_URL`.
+   Con esa variable, la compilación genera `sitemap.xml`, la línea `Sitemap:` de `robots.txt`
+   y las URL canónicas y Open Graph absolutas.
+2. `npm run build` y sube el contenido de `dist/` al alojamiento.
+3. La web usa URL amigables (`/productos`, `/contacto`…) gestionadas en el navegador. El servidor debe
+   devolver `index.html` para cualquier ruta que no sea un archivo (configuración «SPA fallback»).
 
-**Use GitHub Codespaces**
+## Dónde editar el contenido
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+| Qué | Archivo |
+| --- | --- |
+| Datos del negocio (dirección, teléfono, correo, Instagram, horario) | `src/config/site.ts` |
+| Categorías de productos | `src/content/categories.ts` |
+| Productos destacados (vacío hasta confirmar) | `src/content/products.ts` |
+| Servicios | `src/content/services.ts` |
+| Biografía y fotografía de María de la Fuente | `src/content/maria.ts` |
+| Novedades | `src/content/news.ts` |
+| Artículos del blog | `src/content/blog.ts` |
+| Textos legales | `src/pages/legal/` |
 
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/c2c77264-b67b-43d0-b6ec-f2bb31201b03) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Las secciones con listas vacías (productos destacados, novedades, blog, horario) no se muestran
+o muestran un estado alternativo hasta que se añada contenido verificado.

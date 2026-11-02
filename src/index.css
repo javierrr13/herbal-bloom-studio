@@ -2,109 +2,62 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Sistema de diseño de Herbolarium de la Fuente. Todos los colores en HSL.
+   Paleta: verde bosque #294D3B, verde salvia #91A58B, beige natural #F3EFE5,
+   blanco cálido #FCFBF7, marrón tierra #80664D, verde oscuro #20382C. */
 
 @layer base {
   :root {
-    --background: 42 47% 97%;
-    --foreground: 147 35% 15%;
+    --forest: 150 31% 23%;
+    --sage: 106 13% 60%;
+    --sage-soft: 106 16% 88%;
+    --beige: 43 37% 93%;
+    --warm: 48 45% 98%;
+    --earth: 29 25% 40%;
+    --pine: 150 27% 17%;
+
+    --background: var(--warm);
+    --foreground: 150 27% 14%;
 
     --card: 0 0% 100%;
-    --card-foreground: 147 35% 15%;
+    --card-foreground: var(--foreground);
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 147 35% 15%;
+    --popover: var(--warm);
+    --popover-foreground: var(--foreground);
 
-    --primary: 147 35% 35%;
-    --primary-foreground: 0 0% 100%;
-    
-    --primary-light: 147 30% 55%;
-    --primary-dark: 147 40% 25%;
+    --primary: var(--forest);
+    --primary-foreground: var(--warm);
+    --primary-light: var(--sage);
+    --primary-dark: var(--pine);
 
-    --secondary: 42 60% 85%;
-    --secondary-foreground: 147 35% 15%;
+    --secondary: var(--beige);
+    --secondary-foreground: var(--pine);
 
-    --muted: 42 30% 92%;
-    --muted-foreground: 147 15% 45%;
+    --muted: var(--beige);
+    --muted-foreground: 150 10% 34%;
 
-    --accent: 32 70% 75%;
-    --accent-foreground: 147 35% 15%;
+    --accent: var(--earth);
+    --accent-foreground: var(--warm);
 
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 4 62% 44%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 42 30% 88%;
-    --input: 42 30% 88%;
-    --ring: 147 35% 35%;
+    --border: 43 22% 84%;
+    --input: 43 18% 78%;
+    --ring: var(--forest);
 
-    --radius: 0.75rem;
-    
-    --gradient-primary: linear-gradient(135deg, hsl(147 35% 35%), hsl(147 30% 55%));
-    --gradient-hero: linear-gradient(180deg, hsl(147 20% 95%), hsl(42 47% 97%));
-    
-    --shadow-soft: 0 4px 20px -2px hsl(147 35% 35% / 0.1);
-    --shadow-medium: 0 8px 30px -4px hsl(147 35% 35% / 0.15);
-    
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --radius: 0.375rem;
 
-    --sidebar-background: 0 0% 98%;
+    --sidebar-background: var(--warm);
+    --sidebar-foreground: var(--foreground);
+    --sidebar-primary: var(--forest);
+    --sidebar-primary-foreground: var(--warm);
+    --sidebar-accent: var(--beige);
+    --sidebar-accent-foreground: var(--pine);
+    --sidebar-border: 43 22% 84%;
+    --sidebar-ring: var(--forest);
 
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 147 25% 8%;
-    --foreground: 42 47% 95%;
-
-    --card: 147 20% 12%;
-    --card-foreground: 42 47% 95%;
-
-    --popover: 147 20% 12%;
-    --popover-foreground: 42 47% 95%;
-
-    --primary: 147 30% 55%;
-    --primary-foreground: 0 0% 100%;
-    
-    --primary-light: 147 35% 65%;
-    --primary-dark: 147 25% 40%;
-
-    --secondary: 42 25% 25%;
-    --secondary-foreground: 42 47% 95%;
-
-    --muted: 147 15% 20%;
-    --muted-foreground: 42 20% 65%;
-
-    --accent: 32 50% 45%;
-    --accent-foreground: 42 47% 95%;
-
-    --destructive: 0 62.8% 50%;
-    --destructive-foreground: 0 0% 100%;
-
-    --border: 147 15% 20%;
-    --input: 147 15% 20%;
-    --ring: 147 30% 55%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --header-height: 4.5rem;
   }
 }
 
@@ -113,11 +66,86 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
-  body {
-    @apply bg-background text-foreground font-inter;
-  }
-  
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: calc(var(--header-height) + 1rem);
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "kern";
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-serif font-medium tracking-tight text-pine;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background: hsl(var(--sage) / 0.35);
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .container-site {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-10;
+  }
+
+  .eyebrow {
+    @apply font-sans text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-earth;
+  }
+
+  .section {
+    @apply py-20 md:py-28;
+  }
+
+  .prose-site {
+    @apply max-w-none text-base leading-relaxed text-foreground/85 md:text-[1.0625rem];
+  }
+  .prose-site h2 {
+    @apply mb-4 mt-12 text-3xl md:text-4xl;
+  }
+  .prose-site h3 {
+    @apply mb-3 mt-8 text-2xl;
+  }
+  .prose-site p {
+    @apply mb-5;
+  }
+  .prose-site ul {
+    @apply mb-5 list-disc space-y-2 pl-5 marker:text-sage;
+  }
+  .prose-site a {
+    @apply text-forest underline decoration-sage underline-offset-4 hover:decoration-forest;
+  }
+  .prose-site blockquote {
+    @apply my-8 border-l-2 border-sage pl-6 font-serif text-2xl italic text-pine;
+  }
+
+  .link-underline {
+    @apply underline decoration-sage/70 underline-offset-4 transition-colors hover:decoration-forest;
   }
 }
